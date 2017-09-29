@@ -58,7 +58,7 @@ route.get('/:listId/edit', (request, response) => {
         })
 })
 
-//Update Route
+//Create Update Route
 router.put('/:listId', (request, response) =>{
     //Grab the list ID from the parameter
     const listId = request.params.listId
@@ -77,6 +77,27 @@ router.put('/:listId', (request, response) =>{
             console.log(error)
         })
 })
+
+//Create Show Route
+router.get('/:listId', (request, response) => {
+    //Grab the list ID from the parameters
+    const listId = request.params.listId
+    //Use the ListModel to find the list by ID in the database 
+    ListModel.findById(listId)
+        .then((list) =>{
+        //Then once the list comes back from the database,
+        //render the single  list's information using Handlebars
+        response.render('lists/show', {
+            list: list
+             })
+        })
+        .catch((error) =>{
+            console.log(error)
+        })
+})
+
+
+
 
 
 module.exports = router;
