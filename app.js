@@ -1,16 +1,23 @@
 require('dotenv').config();
-//Database Set-up
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI,{useMongoClient: true});
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
-var users = require('./routes/users');
+var mongoose = require('mongoose');
+
+//Database Set-up
+mongoose.Promise = global.Promise
+mongoose.connect(process.env.MONGODB_URI,{useMongoClient: true});
+
+const db = mongoose.connection
+db.on('error', (error) => {
+  console.log(error)
+})
+db.once('open', () =>{
+  console.log('Connected to MongoDB')
+})
 
 var app = express();
 
@@ -26,8 +33,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Register Controllers 
+var index = require('./routes/index');
 app.use('/', index);
-app.use('/users', users);
+
+const listController = require('./routes/listController')
+app.use('/lists', listController)
+
+const userController = require('./routes/userController');
+app.use('/lits/:listId/users', userController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,7 +4,7 @@ const Schema = require('../db/schema.js');
 const ListModel = Schema.ListModel;
 
 //Create Index Route
-route.get('/', (request, response) =>{
+router.get('/', (request, response) =>{
     //Find all of the Lists in the database
     ListModel.find({})
         .then((lists) =>{
@@ -39,7 +39,7 @@ router.post('/', (request, response) =>{
         })
 })
 //Create Edit Route
-route.get('/:listId/edit', (request, response) => {
+router.get('/:listId/edit', (request, response) => {
     //Grab the list ID from parameters
     const listId = request.params.listId
 
