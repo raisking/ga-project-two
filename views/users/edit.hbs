@@ -1,0 +1,14 @@
+<form action="/lists/{{listId}}/users/{{user._id}}?_method= PUT" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" value"{{user.name}}">
+    <label for="phone">Phone</label>
+    <input type="number" name="phone" value="{{user.phone}}" step="any">
+    <label for="email">Email</label>
+    <input type="text" name="email" value="{{user.email}}" step="any">
+    <label for="location">Location</label>
+    <input type="text" name="location" value="{{user.location}}" step="any">
+    <label for="store">Store</label>
+    <input type="text" name="store" value="{{user.store}}" step="any">
+    
+    <input type="submit" value="Edit">
+</form>

@@ -1,0 +1,17 @@
+<div>
+    <h1>{{list.name}} 's Users</h1>
+
+    <div>
+        <a href="/lists/{{list._id}}/users/new">Create a New user</a>
+    </div>
+    <div>
+        <a href="/lists">Back to Lists</a>
+    </div>
+
+    {{#each list.users}}
+        <div>
+            {{this.name}} -{{this.qty}}
+            <a href="/lists/{{../list._id}}/users/{{this._id}}">View</a>
+        </div>
+    {{/each}}
+</div>
