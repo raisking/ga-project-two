@@ -18,7 +18,11 @@ route.get('/', (request, response) =>{
             console.log(error)
         })
 })
-
+//Create New Route
+router.get('/new', (request, response) =>{
+    //Render an empty form for the new List
+    response.render('lists/new')
+})
 
 
 
