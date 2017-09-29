@@ -96,8 +96,20 @@ router.get('/:listId', (request, response) => {
         })
 })
 
-
-
+//Create Delete Route 
+router.get('/:listId/delete', (request, response) => {
+    //Grab the list ID that you want to delete from the parameters
+    const listId = request.params.listId
+    //Use the ListModel to find and delete the company the list in the database
+    ListModel.findByIdAndRemove(listId)
+        .then(() => {
+            //Then once the list has been deleted from the database
+            //redirect back to the lists Index
+        })
+        .catch ((error) => {
+            console.log(error)
+        })
+})
 
 
 module.exports = router;
