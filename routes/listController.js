@@ -38,7 +38,25 @@ router.post('/', (request, response) =>{
             console.log(error)
         })
 })
+//Create Edit Route
+route.get('/:listId/edit', (request, response) => {
+    //Grab the list ID from parameters
+    const listId = request.params.listId
 
+    //Find the list Id using ListModel
+    ListModel.findById(listId)
+        .then((list) => {
+            //Then once list has been returned from 
+            //the database, Render a form containing the current
+            //list information
+            response.render('lists/edit' , {
+                list: list
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 
 module.exports = router;
