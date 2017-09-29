@@ -1,0 +1,15 @@
+<div>
+    <h1>Shopping List</h1>
+
+    <h3>Users:</h3>
+    <div>
+        <a href="/lists/new">Add new List</a>
+    </div>
+    {{#each lists}}
+        <div>
+            {{this.name}} - {{this.qty}}
+            <a href="/lists/{{this._id}}">{{this.name}} Info</a>
+            <a href="/lists/{{this._id}}/users">{{this.name}}'s Users</a>
+        </div>
+    {{/each}}
+</div>
