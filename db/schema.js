@@ -11,20 +11,21 @@ const UserSchema = new Schema({
     phone:{
         type: Number,
         required: true
-    },
-    email:{
-        type: String,
-        required: true
-    },
-    location: {
-        type: String,
-        required: true
-    },
-    store: {
-        type: Number,
-        required: true
     }
+    // email:{
+    //     type: String,
+    //     required: true
+    // },
+    // location: {
+    //     type: String,
+    //     required: true
+    // },
+    // store: {
+    //     type: Number,
+    //     required: true
+    // }
 })
+
 const ListSchema = new Schema({
     name:{
         type: String,
