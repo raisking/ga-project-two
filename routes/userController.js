@@ -55,5 +55,28 @@ router.post('/', (request, response) =>{
             //Redirect to the users index for that list
             response.redirect(`/lists/${listId}/users`)
         })
+})
+//Create Edit Route
+router.get('/:userId/edit', (request, response) =>{
+    //Grab the list ID from the parameter
+    const listId = request.params.listId
+    //Grab the user ID from the parameter
+    const userId = request.params.userId
 
+    //USE the ListModel to fine the list by ID
+    ListModel.findById(listId)
+        .then((list) =>{
+            //Then once the list has been returned
+            //Find the user by ID that you want to edit
+            const user = list.users.id(userId)
+            //Render a form pre-populated with that user informtion,
+            //Also passing the listId to use for the form's Action
+            repsponse.render('users/edit', {
+                user: user,
+                listId: listId
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
