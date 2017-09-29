@@ -22,7 +22,7 @@ ListModel.remove({}, function(err){
 // list is Company
 
 //Create some Lists 
-const newList = new ListModel({name: '12 Pk Beer', qty: 10});
+const newListOne = new ListModel({name: '12 Pk Beer', qty: 10});
 const newListTwo = new ListModel({name: 'Apple', qty: 10});
 const newListThree = new ListModel({name: 'Pizza', qty: 12 });
 
@@ -35,7 +35,7 @@ const newUserThree = new UserModel({
     name: 'Floyd Mayweather',phoneNumber: 220-454-4545, email: 'floyd@gmail.com', location:'Los Vegas', store: 'Walmart' });
             
 //Assign lists to the users
-const lists = [newList, newListTwo, newListThree];
+const lists = [newListOne, newListTwo, newListThree];
 const users = [newUser, newUserTwo, newUserThree];
 
 lists.forEach((list) =>{

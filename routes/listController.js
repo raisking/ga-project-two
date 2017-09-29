@@ -23,7 +23,21 @@ router.get('/new', (request, response) =>{
     //Render an empty form for the new List
     response.render('lists/new')
 })
-
+//Create Route
+router.post('/', (request, response) =>{
+    //Grab the new list informations as a 
+    //JS object from the request body
+    const newList =request.body
+    //Create and Save a new list using the ListModel
+    ListModel.create(newList)
+        .then(() =>{
+            //Then once the model has saved, redirect to the lists Index
+            response.redirect('/lists')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 
 
