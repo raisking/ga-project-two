@@ -19,7 +19,6 @@ var UserModel = Schema.UserModel;
 ListModel.remove({}, function(err){
     console.log(err);
 });
-// list is Company
 
 //Create some Lists 
 const newListOne = new ListModel({name: '12 Pk Beer', qty: 10});
