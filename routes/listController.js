@@ -10,7 +10,7 @@ route.get('/', (request, response) =>{
         .then((lists) =>{
             //Then once they come back from the database
             //Render them in Handlebars
-            response.render('lists/index'. {
+            response.render('lists/index',{
                 lists: lists
             })
         })

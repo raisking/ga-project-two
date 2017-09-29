@@ -98,9 +98,6 @@ router.put('/:userId', (request, response) =>{
             //the same attribute on the original user
             user.name = updatedUser.name
             user.phone = updatedUser.phone
-            user.email = updatedUser.email
-            user.location = updatedUser.location
-            user.store = updatedUser.store
             //Save the updated list and return the promise
             return list.save()
         })

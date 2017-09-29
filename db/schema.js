@@ -7,15 +7,12 @@ const UserSchema = new Schema({
     name:{
         type: String,
         required: true
+    },
+    phone: {
+        type: Number,
+        required: true
     }
-    // location: {
-    //     type: String,
-    //     required: true
-    // },
-    // store: {
-    //     type: Number,
-    //     required: true
-    // }
+
 })
 
 const ListSchema = new Schema({

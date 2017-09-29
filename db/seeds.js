@@ -27,9 +27,9 @@ const newListTwo = new ListModel({name: 'Apple', qty: 10});
 const newListThree = new ListModel({name: 'Pizza', qty: 12 });
 
 //Create some Users 
-const newUserOne = new UserModel({name: 'James Parker',phoneNumber: 4044544545});
-const newUserTwo = new UserModel({name: 'Will Smith',phoneNumber: 4454544335});
-const newUserThree = new UserModel({name: 'Floyd Mayweather',phoneNumber: 2204544545});
+const newUserOne = new UserModel({name: 'James Parker',phone: 4044544545});
+const newUserTwo = new UserModel({name: 'Will Smith',phone: 4454544335});
+const newUserThree = new UserModel({name: 'Floyd Mayweather',phone: 2204544545});
             
 //Assign lists to the users
 const lists = [newListOne, newListTwo, newListThree];
