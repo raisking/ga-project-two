@@ -80,3 +80,57 @@ router.get('/:userId/edit', (request, response) =>{
             console.log(error)
         })
 })
+//Create Update Route
+router.put('/:userId', (request, response) =>{
+    //Grab the list ID from the parameter
+    const listId = request.params.listId
+    //Grab the user ID from the parameter
+    const userId = request.params.userId
+    //Grab the updated user object from the request body
+    const updatedUser = request.body
+    //Use the ListModel to find the list by ID
+    ListModel.findById(listId)
+        .then((list) =>{
+            //Then once the list has been returned, 
+            //Find the user by ID from the list's users
+            const user = list.users.id(userId)
+            //Map each attribute from the updated user object to 
+            //the same attribute on the original user
+            user.name = updatedUser.name
+            user.phone = updatedUser.phone
+            user.email = updatedUser.email
+            user.location = updatedUser.location
+            user.store = updatedUser.store
+            //Save the updated list and return the promise
+            return list.save()
+        })
+        .then(() =>{
+            //then once the list has saved, redirect to the 
+            //user's show page
+            response.redirect(`/lists/${listId}/users/${userId}`)
+        })
+})
+
+//Create Show Route
+router.get('/userId', (request, response) =>{
+    //Grabe the list ID from the parameter
+    const listId = request.params.listId
+    //Grab the user ID from the parameter
+
+    //Use the ListModel to fine the list by ID
+    ListModel.findById(listId)
+        .then((list) =>{
+            //Then once the list has been returned
+            //Find the user by ID from the list's users
+            const user = list.users.id(userId)
+            //Then render the snowboard information using Handlebars
+            //and pass the listId to use in link URLs
+            response.render('users/show', {
+                user: user,
+                listId: listId
+            })
+        })
+        .catch ((error) => {
+            console.log(error)
+        })
+})
