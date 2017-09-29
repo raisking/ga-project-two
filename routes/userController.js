@@ -134,3 +134,25 @@ router.get('/userId', (request, response) =>{
             console.log(error)
         })
 })
+//Craete Delete Route 
+router.get('/:userId/delete', (request, response) => {
+    //Grab the user Id from the parameter
+    const listId = request.params.listId
+    // Grab the user Id  from the parameter
+    const userId = request.params.userId
+    //Use the ListModel to find the list by ID
+    ListModel.findById(listId)
+        .then((list) =>{
+            //Then once the list has been returned
+            //Remove the user from the list's user array
+            const user = list.users.id(userId).remove()
+            //Then save the list and return the Promise
+            return list.save()
+        })
+        .then(() =>{
+            //Then once the list has saved, redirect to the 
+            //list's user Index page
+            reponse.redirect(`/lists/${listId}/users`)
+        })
+})
+module.exports = router;
