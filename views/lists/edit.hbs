@@ -1,0 +1,9 @@
+<form action="/lists/{{list._id}}?_method=PUT" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{list.name}}">
+
+    <label for="qty">Qty</label>
+    <input type="text" name="qty" value"{{list.qty}}">
+
+    <input type="submit" value="Edit">
+</form>
