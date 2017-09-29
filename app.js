@@ -1,10 +1,14 @@
+require('dotenv').config();
+//Database Set-up
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI,{useMongoClient: true});
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 
