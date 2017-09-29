@@ -58,5 +58,25 @@ route.get('/:listId/edit', (request, response) => {
         })
 })
 
+//Update Route
+router.put('/:listId', (request, response) =>{
+    //Grab the list ID from the parameter
+    const listId = request.params.listId
+    //Grab the updated List information from the request body
+    const updatedList = request.body
+    //Use Mongoose to find the list by ID and update it with the 
+    // new list information. Be sure to include the {new: true} option as 
+    //third parameter
+    ListModel.findByIdAndUpdate(listId, updatedList, {new: true})
+        .then(() => {
+            //Then once the new list information has been saved, 
+            //redirect to that list's SHOW page
+            response.redirect(`/companies/${listId}`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
 
 module.exports = router;
