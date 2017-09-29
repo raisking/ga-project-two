@@ -22,3 +22,14 @@ router.get('/', (request, response) =>{
         })
 })
 
+//Create New Route 
+router.get('/new', (request, response) => {
+    //Grab the list ID from the parameters
+    const listId = request.params.listId
+    //Render a new form for a fresh user,
+    //also passing the listId to use in the 
+    //form's action
+    response.render('users/new', {
+        listId: listId
+    })
+})
