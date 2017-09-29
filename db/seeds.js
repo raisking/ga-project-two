@@ -27,7 +27,7 @@ const newListTwo = new ListModel({name: 'Apple', qty: 10});
 const newListThree = new ListModel({name: 'Pizza', qty: 12 });
 
 //Create some Users 
-const newUser = new UserModel({
+const newUserOne = new UserModel({
     name: 'James Parker',phoneNumber: 404-454-4545, email: 'jamesparker@gmail.com', location:'Atlanta,GA', store: 'Walmart' });
 const newUserTwo = new UserModel({
     name: 'Will Smith',phoneNumber: 445-454-4335, email: 'willsmith@gmail.com', location:'LA', store: 'Walmart' });
@@ -36,7 +36,7 @@ const newUserThree = new UserModel({
             
 //Assign lists to the users
 const lists = [newListOne, newListTwo, newListThree];
-const users = [newUser, newUserTwo, newUserThree];
+const users = [newUserOne, newUserTwo, newUserThree];
 
 lists.forEach((list) =>{
     list.users = users
