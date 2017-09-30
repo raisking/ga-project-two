@@ -1,9 +1,27 @@
 <form action="/users/{{user._id}}?_method=PUT" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name" value="{{user.name}}">
-
-    <label for="phone">Phone</label>
-    <input type="text" name="phone" value="{{user.user}}">
-
-    <input type="submit" value="Edit">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" value="{{user.name}}">
+    </div>
+        <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" name="phone" value="{{user.phone}}">
+    </div>  
+          <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" value="{{user.email}}">
+    </div>  
+         <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" name="location" value="{{user.location}}">
+    </div>  
+          <div class="form-group">
+        <label for="store">Store</label>
+        <input type="text" class="form-control" name="store" value="{{user.store}}">
+    </div>  
+       <div class="form-group" id="edit">
+         <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+        
 </form>
+

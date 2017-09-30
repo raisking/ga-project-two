@@ -25,6 +25,18 @@ const UserSchema = new Schema({
         type: Number,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
+    location: {
+        type: String,
+        required: true
+    },
+    store: {
+        type: String,
+        required: true
+    },
     lists: [ListSchema]
 });
 

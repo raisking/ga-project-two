@@ -1,8 +1,33 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ccc;
+  text-decoration: none;
+ 
 }
 
 a {
   color: #00B7FF;
+}
+ul {
+  list-style-type: none;
+}
+.form-group{
+  width: 30%;
+  margin: 0 auto;
+}
+#submit{
+  margin-top: 10px;
+}
+#edit{
+  margin-top: 10px;
+} 
+hr{
+  color: #000;
+}
+#front-page{
+  margin: 0 auto;
+}
+h1{
+  color: yellow;
 }

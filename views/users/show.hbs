@@ -1,14 +1,19 @@
-<div>
-    <h1>User: {{user.name}}</h1>
-    <h1>Phone: {{user.phone}}</h1>
-
-    <div>
-        <a href="/users">Back to Users</a>
-    </div>
-    <div>
-        <a href="/users/{{user._id}}/edit">Edit</a>
-    </div>
-    <div>
-        <a href="/users/{{user._id}}/delete">Delete</a>
-    </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+        <h1>User Personal Information</h1>
+        <hr>  
+        <h3>User: {{user.name}}</h3>
+        <h3>Phone: {{user.phone}}</h3>
+        <h3>Email: {{user.email}}</h3>
+        <h3>Location: {{user.location}}</h3>
+        <h3>Store: {{user.store}}</h3>
+        <div>
+            <a href="/users">
+            <button type="button" class="btn btn-primary">Back to Users</button></a>
+            <a href="/users/{{user._id}}/edit">
+            <button type="button" class="btn btn-primary">Edit</button></a>
+            <a href="/users/{{user._id}}/delete">
+            <button type="button" class="btn btn-primary">Delete</button></a>
+        </div> 
+  </div>
 </div>

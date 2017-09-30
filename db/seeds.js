@@ -25,9 +25,12 @@ UserModel.remove({}, function (err) {
 });
 
 // Create some users and lists
-const newUserOne = new UserModel({ name: 'John', phone: 770-555-4445})
-const newUserTwo = new UserModel({ name: 'Mary', phone: 444-333-8888 })
-const newUserThree = new UserModel({ name: 'James', phone: 404-844-9494 })
+const newUserOne = new UserModel({ name: 'John Bush', phone: 7705554445, 
+email: 'john@gmail.com', location: 'Atlanta,GA', store: 'Walmart'})
+const newUserTwo = new UserModel({ name: 'Mary Obama', phone: 4443338888, 
+email: 'john@gmail.com', location: 'Atlanta,GA', store: 'Whole Foods'})
+const newUserThree = new UserModel({ name: 'James Parker', phone: 4048449494, 
+email: 'james@gmail.com', location: 'Atlanta,GA', store: 'Publix'})
 
 const newListOne = new ListModel({ name: 'Pizza', qty: 22 })
 const newListTwo = new ListModel({ name: 'Beer', qty: 1 })

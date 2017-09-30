@@ -60,13 +60,13 @@ router.get('/:userId/edit', (request, response) => {
 //Create Update Route
 router.put('/:userId', (request, response) =>{
   //Grab the user Id from the parameter
-    const userId = request.params.userId
+   const userId = request.params.userId
     //Grab the updated User Info from the request body
     const updatedUser = request.body
     //use mongoose to find the user by ID and update it with the 
     //new user info. Be sure to include the {new: true} option as 
    //your third parameter 
-    UserModel.findByIdAndUpdate(userId, updatedUser, {new: true})
+    UserModel.findByIdAndUpdate(userId, updatedUser, { new: true })
         .then(() => {
          //Then once the new user info has been saved,
          //redirect to that user's show page
@@ -81,7 +81,7 @@ router.put('/:userId', (request, response) =>{
 router.get('/:userId', (request, response) => {
     //Grab the user ID from the parameter
      const userId = request.params.userId
-    //User the UserModel to find the user by ID in the database
+    //Use the UserModel to find the user by ID in the database
      UserModel.findById(userId)
         .then((user) =>{
        //Then once the user comes back from the database,

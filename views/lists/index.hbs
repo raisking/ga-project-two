@@ -1,22 +1,18 @@
-
 <div>
-    <h1>Shopping List</h1>
-    
     <h1>{{user.name}}'s Shopping List</h1>
 
     <div>
-        <a href="/users/{{user._id}}/lists/new"> Create a New Shopping List</a>
+        <a href="/users/{{user._id}}/lists/new">Create a New Shopping List</a>
     </div>
 
     <div>
-        <a href="/users">Back to Users Page</a>
+        <a href="/users">Back to Companies</a>
     </div>
-
+    
     {{#each user.lists}}
         <div>
             {{this.name}} - {{this.qty}}
             <a href="/users/{{../user._id}}/lists/{{this._id}}">View</a>
         </div>
     {{/each}}
-    
 </div>
