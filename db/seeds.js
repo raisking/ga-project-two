@@ -12,38 +12,42 @@ db.once('open', function(){
 });
 // Pull in Models from the 'schema.js'
 var Schema = require("./schema.js");
-var ListModel = Schema.ListModel;
 var UserModel = Schema.UserModel;
+var ListModel = Schema.ListModel;
+
 
 //Delete all Lists from the database
-ListModel.remove({}, function(err){
+UserModel.remove({}, function(err){
     console.log(err);
 });
-
-//Create some Lists 
-const newListOne = new ListModel({name: '12 Pk Beer', qty: 10});
-const newListTwo = new ListModel({name: 'Apple', qty: 10});
-const newListThree = new ListModel({name: 'Pizza', qty: 12 });
 
 //Create some Users 
 const newUserOne = new UserModel({name: 'James Parker',phone: 4044544545});
 const newUserTwo = new UserModel({name: 'Will Smith',phone: 4454544335});
 const newUserThree = new UserModel({name: 'Floyd Mayweather',phone: 2204544545});
             
-//Assign lists to the users
-const lists = [newListOne, newListTwo, newListThree];
-const users = [newUserOne, newUserTwo, newUserThree];
+//Create some Lists 
+const newListOne = new ListModel({name: '12 Pk Beer', qty: 10});
+const newListTwo = new ListModel({name: 'Apple', qty: 10});
+const newListThree = new ListModel({name: 'Pizza', qty: 12 });
 
-lists.forEach((list) =>{
-    list.users = users
-    list.save()
-        .then((list) => {
-            console.log(`${list.name} saved`)
+
+//Assign lists to the users
+const users = [newUserOne, newUserTwo, newUserThree];
+const lists = [newListOne, newListTwo, newListThree];
+
+Users.forEach((user) =>{
+    user.lists = lists
+
+    user.save()
+        .then((user) => {
+            console.log(`${user.name} saved`)
         })
         .catch((error) =>{
             console.log(error)
         })
 });
+
 
 //Disconnect from database
 db.close();

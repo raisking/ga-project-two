@@ -1,17 +1,15 @@
 <div>
-    <h1>{{list.name}} 's Users</h1>
+    <h1>Shopping List</h1>
 
+    <h3>Users:</h3>
     <div>
-        <a href="/lists/{{list._id}}/users/new">Create a New user</a>
+        <a href="/users/new">Add New User</a>
     </div>
-    <div>
-        <a href="/lists">Back to Lists</a>
-    </div>
-
-    {{#each list.users}}
+    {{#each users}}
         <div>
-            {{this.name}} -{{this.qty}}
-            <a href="/lists/{{../list._id}}/users/{{this._id}}">View</a>
+            {{this.name}} - {{this.phone}}
+            <a href="/users/{{this._id}}">{{this.name}} Info</a>
+            <a href="/users/{{this._id}}/lists">{{this.name}}'s Lists</a>
         </div>
     {{/each}}
 </div>

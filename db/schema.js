@@ -3,6 +3,19 @@ const mongoose = require('mongoose');
 //constructor defined by mongoose
 const Schema = mongoose.Schema;
 
+const ListSchema = new Schema({
+    name:{
+        type: String,
+        required: true,
+        
+    },
+    qty: {
+        type: Number,
+        required: true
+    },
+    
+})
+
 const UserSchema = new Schema({
     name:{
         type: String,
@@ -11,28 +24,21 @@ const UserSchema = new Schema({
     phone: {
         type: Number,
         required: true
-    }
+    },
+
+    lists: [ListSchema]
 
 })
 
-const ListSchema = new Schema({
-    name:{
-        type: String,
-        required: true,
-        unique: true
-    },
-    qty: {
-        type: Number,
-        required: true
-    },
-    users: [UserSchema]
-})
+
 //create models for each schema
-const ListModel = mongoose.model('List', ListSchema);
 const UserModel = mongoose.model('User', UserSchema);
+const ListModel = mongoose.model('List', ListSchema);
+
 
 //Export each model so they can be required elesewhere
 module.exports = {
-    ListModel: ListModel,
-    UserModel: UserModel
+    UserModel: UserModel,
+    ListModel: ListModel
+   
 }

@@ -1,95 +1,97 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 const Schema = require('../db/schema.js');
-const ListModel = Schema.ListModel;
+const UserModel = Schema.UserModel;
 
 //Create Index Route
-router.get('/', (request, response) =>{
-    //Find all of the Lists in the database
-    ListModel.find({})
-        .then((lists) =>{
-            //Then once they come back from the database
-            //Render them in Handlebars
-            response.render('lists/index',{
-                lists: lists
+router.get('/', (request, Response) =>{
+    //Grab the user ID from the parameter
+    const userId = request.params.userId
+    //user the UserMode to find the company by ID
+    UserModel.findById(userId)
+        .then((user) =>{
+            //Then once you have found the company in the database
+            response.render('lists/index', {
+                user: user
+            })
+        })
+        .catch ((error) =>{
+            console.log(error)
+        })
+})
+//Create New Route
+router.get('/new', (request, response) =>{
+    const userId = request.params.userId
+
+    response.render('lists/new', {
+        userId: userId
+    })
+})
+//Create Route
+router.post('/', (request, response) => {
+    const userId = request.params.userId
+    const newList = request.body
+
+    UserModel.findById(userId)
+        .then((user) =>{
+            user.lists.push(newList)
+            return user.save()
+        })
+        .then((user) =>{
+            response.redirect(`/users/${userId}/lists`)
+        })
+})
+
+router.get('/:listId/edit', (request, response) =>{
+    const userId = request.params.userId
+    const listId = request.params.listId
+
+    UserModel.findById(userId)
+        .then((user) =>{
+            const list = user.lists.id(listId)
+            response.render('lists/edit', {
+                list: list,
+                userId: userId
             })
         })
         .catch((error) =>{
             console.log(error)
         })
 })
-//Create New Route
-router.get('/new', (request, response) =>{
-    //Render an empty form for the new List
-    response.render('lists/new')
-})
-//Create Route
-router.post('/', (request, response) =>{
-    //Grab the new list informations as a 
-    //JS object from the request body
-    const newList =request.body
-    //Create and Save a new list using the ListModel
-    ListModel.create(newList)
-        .then(() =>{
-            //Then once the model has saved, redirect to the lists Index
-            response.redirect('/lists')
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-})
-//Create Edit Route
-router.get('/:listId/edit', (request, response) => {
-    //Grab the list ID from parameters
-    const listId = request.params.listId
-
-    //Find the list Id using ListModel
-    ListModel.findById(listId)
-        .then((list) => {
-            //Then once list has been returned from 
-            //the database, Render a form containing the current
-            //list information
-            response.render('lists/edit' , {
-                list: list
-            })
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-})
 
 //Create Update Route
-router.put('/:listId', (request, response) =>{
-    //Grab the list ID from the parameter
+router.put('/:listId', (request, response) => {
+    const userId = request.params.userId
     const listId = request.params.listId
-    //Grab the updated List information from the request body
-    const updatedList = request.body
-    //Use Mongoose to find the list by ID and update it with the 
-    // new list information. Be sure to include the {new: true} option as 
-    //third parameter
-    ListModel.findByIdAndUpdate(listId, updatedList, {new: true})
-        .then(() => {
-            //Then once the new list information has been saved, 
-            //redirect to that list's SHOW page
-            response.redirect(`/companies/${listId}`)
+    const updatedlist = request.body
+
+    UserModel.findById(userId)
+        .then((user) =>{
+            const list = user.lists.id(listId)
+            list.name = updatedlist.name
+            list.qty = updatedlist.qty
+
+            return company.save()
         })
-        .catch((error) => {
-            console.log(error)
+        .then(() =>{
+
+            response.redirect(`/users/${userId}/lists/${listId}`)
         })
 })
-
 //Create Show Route
-router.get('/:listId', (request, response) => {
-    //Grab the list ID from the parameters
+router.get('/:listId', (request, response) =>{
+
+    const userId = request.params.userId
     const listId = request.params.listId
-    //Use the ListModel to find the list by ID in the database 
-    ListModel.findById(listId)
-        .then((list) =>{
-        //Then once the list comes back from the database,
-        //render the single  list's information using Handlebars
-        response.render('lists/show', {
-            list: list
-             })
+
+    UserModel.findById(userId)
+        .then((user) => {
+            const list = user.lists.id(listId)
+            
+            response.render('/lists/show', {
+                list: list,
+                userId: userId
+            })
         })
         .catch((error) =>{
             console.log(error)
@@ -97,19 +99,18 @@ router.get('/:listId', (request, response) => {
 })
 
 //Create Delete Route 
-router.get('/:listId/delete', (request, response) => {
-    //Grab the list ID that you want to delete from the parameters
+router.get('/:listId/delete', (request, response) =>{
+    const userId = request.params.userId
     const listId = request.params.listId
-    //Use the ListModel to find and delete the company the list in the database
-    ListModel.findByIdAndRemove(listId)
-        .then(() => {
-            //Then once the list has been deleted from the database
-            //redirect back to the lists Index
+
+    UserModel.findById(userId)
+        .then((user) =>{
+            const list = user.lists.id(listId).remove()
+            return user.save()
         })
-        .catch ((error) => {
-            console.log(error)
+        .then(() =>{
+            response.redirect(`/users/${userId}/lists`)
         })
 })
-
 
 module.exports = router;

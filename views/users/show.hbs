@@ -1,6 +1,14 @@
 <div>
-    {{user.name}} -{{user.phone}}
-    <a href="/lists/{{listId}}/users/{{user._id}}/edit">Edit</a>
-    <a href="/lists/{{listId}}/users/{{user._id}}/delete">Delete</a>
-    
+    <h1>{{user.name}}</h1>
+    <div>User: {{user.user}}</div>
+
+    <div>
+        <a href="/users">Back to Users</a>
+    </div>
+    <div>
+        <a href="/users/{{user._id}}/edit">Edit</a>
+    </div>
+    <div>
+        <a href="/users/{{user._id}}/delete">Delete</a>
+    </div>
 </div>
