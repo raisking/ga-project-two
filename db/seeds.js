@@ -1,53 +1,54 @@
 require('dotenv').config();
-//Database setup
+
+// Database setup
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI)
 const db = mongoose.connection;
-//Will log an error if db cannot connect to MongoDB
-db.on('error', function(err){
+// Will log an error if db can't connect to MongoDB
+db.on('error', function (err) {
     console.log(err);
 });
-db.once('open', function(){
-    console.log("Connected to MongoDB");
+// Will log "database has been connected" if it successfully connects.
+db.once('open', function () {
+    console.log("Connected to MongoDB!");
 });
-// Pull in Models from the 'schema.js'
+
+// Pull in Models from the `schema.js`
 var Schema = require("./schema.js");
+
 var UserModel = Schema.UserModel;
 var ListModel = Schema.ListModel;
 
-
-//Delete all Lists from the database
-UserModel.remove({}, function(err){
+// Delete all users from the database
+UserModel.remove({}, function (err) {
     console.log(err);
 });
 
-//Create some Users 
-const newUserOne = new UserModel({name: 'James Parker',phone: 4044544545});
-const newUserTwo = new UserModel({name: 'Will Smith',phone: 4454544335});
-const newUserThree = new UserModel({name: 'Floyd Mayweather',phone: 2204544545});
-            
-//Create some Lists 
-const newListOne = new ListModel({name: '12 Pk Beer', qty: 10});
-const newListTwo = new ListModel({name: 'Apple', qty: 10});
-const newListThree = new ListModel({name: 'Pizza', qty: 12 });
+// Create some users and lists
+const newUserOne = new UserModel({ name: 'John', phone: 770-555-4445})
+const newUserTwo = new UserModel({ name: 'Mary', phone: 444-333-8888 })
+const newUserThree = new UserModel({ name: 'James', phone: 404-844-9494 })
 
+const newListOne = new ListModel({ name: 'Pizza', qty: 22 })
+const newListTwo = new ListModel({ name: 'Beer', qty: 1 })
+const newListThree = new ListModel({ name: 'Hot Dog', qty: 12 })
 
-//Assign lists to the users
-const users = [newUserOne, newUserTwo, newUserThree];
-const lists = [newListOne, newListTwo, newListThree];
+// Here we assign some lists to each user.
+const users = [newUserOne, newUserTwo, newUserThree]
+const lists = [newListOne, newListTwo, newListThree]
 
-Users.forEach((user) =>{
+users.forEach((user) => {
+
     user.lists = lists
 
     user.save()
         .then((user) => {
-            console.log(`${user.name} saved`)
+            console.log(`${user.name} saved!`)
         })
-        .catch((error) =>{
+        .catch((error) => {
             console.log(error)
         })
 });
 
-
-//Disconnect from database
+// Disconnect from database
 db.close();

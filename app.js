@@ -37,11 +37,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index');
 app.use('/', index);
 
-const listController = require('./routes/listController')
-app.use('/lists', listController)
-
 const userController = require('./routes/userController');
-app.use('/lits/:listId/users', userController);
+app.use('/users', userController);
+
+const listController = require('./routes/listController')
+app.use('/users/:userId/lists', listController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
