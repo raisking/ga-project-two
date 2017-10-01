@@ -23,6 +23,11 @@ router.get('/new', (request, response) =>{
     //REnder an empty form for the new user
     response.render('users/new')
 })
+//Create New Route
+router.get('/mainpage', (request, response) =>{
+    //REnder an empty form for the new user
+    response.render('users/mainpage')
+})
 
 //Create Route
 router.post('/', (request, response) =>{
@@ -49,7 +54,7 @@ router.get('/:userId/edit', (request, response) => {
             //the database, Render a form containing the current
             //company information
             response.render('users/edit', {
-                user: user
+                user    : user
             })
         })
         .catch((error) => {
@@ -57,7 +62,7 @@ router.get('/:userId/edit', (request, response) => {
         })
 })
 
-//Create Update Route
+//Create Update Route update when edit clicked 
 router.put('/:userId', (request, response) =>{
   //Grab the user Id from the parameter
    const userId = request.params.userId
@@ -66,7 +71,7 @@ router.put('/:userId', (request, response) =>{
     //use mongoose to find the user by ID and update it with the 
     //new user info. Be sure to include the {new: true} option as 
    //your third parameter 
-    UserModel.findByIdAndUpdate(userId, updatedUser, { new: true })
+    UserModel.findByIdAndUpdate(userId,updatedUser, { new: true })
         .then(() => {
          //Then once the new user info has been saved,
          //redirect to that user's show page

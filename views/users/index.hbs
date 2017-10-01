@@ -1,27 +1,33 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
-    <div class="container">
-            <h1>Welcome to the Shopping List App</h1>
-            <h2>Make Your Life Easier</h2>
-            <div>
-                <a href="/users/new">
-                <button type="button" class="btn btn-primary">Add a New User</button></a>
-            </div>
-            <br> {{#each users}}
-            <div>
+    <div class="container" id="center-div">
+        <h2 class="text-center">Welcome to the Grocery List App</h2>
+        <h2 class="text-center">Make Your Life Easier</h2>
+        <hr>
+        <div> 
+            <button id="btn-color" type="button" class="btn btn-primary"><a href="/users/new"> 
+                <span class="glyphicon glyphicon glyphicon-user">
+                </span> Add a New User</button></a>
+            </span>
+        </div>
+
+        <br> {{#each users}}
+        <div class="row">
+            <div class="col-md-4">
                 <ul>
-                    <li>Name: {{this.name}}</li>
-                    <li>Phone: {{this.phone}}</li>
-                    <li>Email: {{this.email}}</li>
-                    <li>Location: {{this.location}}</li>
-                    <li>Store: {{this.store}}</li>
+                    <li><strong>{{this.name}}</strong></li>
                 </ul>
             </div>
-            <div>
-                <a href="/users/{{this._id}}">
+        </div>
+        <div>
+       
+            <a href="/users/mainpage">
+            <button type="button" class="btn btn-primary">Mainpage</button></a>
+            <a href="/users/{{this._id}}">
             <button type="button" class="btn btn-primary">{{this.name}}'s Information</button></a>
-                <a href="/users/{{this.id}}/lists">
-            <button type="button" class="btn btn-primary">{{this.name}}'s Shopping Lists</button></a>
-            </div>
-            <br> {{/each}}
+            <a href="/users/{{this._id}}/lists">
+            <button type="button" class="btn btn-primary">{{this.name}}'s Grocery Lists</button></a>
+        </div>
+        <br> {{/each}}
+       
     </div>
 </div>

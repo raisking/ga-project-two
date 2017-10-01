@@ -1,27 +1,44 @@
-<form action="/users/{{user._id}}?_method=PUT" method="POST">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" value="{{user.name}}">
-    </div>
-        <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="text" class="form-control" name="phone" value="{{user.phone}}">
-    </div>  
-          <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" value="{{user.email}}">
-    </div>  
-         <div class="form-group">
-        <label for="location">Location</label>
-        <input type="text" class="form-control" name="location" value="{{user.location}}">
-    </div>  
-          <div class="form-group">
-        <label for="store">Store</label>
-        <input type="text" class="form-control" name="store" value="{{user.store}}">
-    </div>  
-       <div class="form-group" id="edit">
-         <button type="submit" class="btn btn-primary">Edit</button>
-    </div>
-        
-</form>
+<div class="jumbotron jumbotron-fluid" id="front-page">
+    <div class="container">
+        <form action="/users/{{user._id}}?_method=PUT" method="POST">
+            <h1>Grocery List App</h1>
+            <hr>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" value="{{user.name}}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" name="phone" value="{{user.phone}}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" name="street" value="{{user.street}}">
+            </div>
+             <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" name="city" value="{{user.city}}">
+            </div>
+             <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" name="state" value="{{user.state}}">
+            </div>
+             <div class="form-group">
+                <label for="zipcode">Zipcode</label>
+                <input type="text" class="form-control" name="zipcode" value="{{user.zipcode}}">
+            </div>
+            <div class="form-group">
+                <label for="store">Store</label>
+                <input type="text" class="form-control" name="store" value="{{user.store}}">
+            </div>
+            <div class="form-group" id="edit">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
 
+        </form>
+    </div>
+</div>

@@ -1,19 +1,24 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" id="front-page">
   <div class="container">
-        <h1>User Personal Information</h1>
-        <hr>  
-        <h3>User: {{user.name}}</h3>
-        <h3>Phone: {{user.phone}}</h3>
-        <h3>Email: {{user.email}}</h3>
-        <h3>Location: {{user.location}}</h3>
-        <h3>Store: {{user.store}}</h3>
-        <div>
-            <a href="/users">
-            <button type="button" class="btn btn-primary">Back to Users</button></a>
-            <a href="/users/{{user._id}}/edit">
+    <h2>User Personal Information</h2>
+    <hr>
+    <ul>
+      <li>User: {{user.name}}</li>
+      <li>Phone: {{user.phone}}</li>
+      <li>Email: {{user.email}}</li>
+      <li>Street: {{user.street}}</li>
+      <li>City: {{user.city}}</li>
+      <li>State: {{user.state}}</li>
+      <li>Zipcode: {{user.zipcode}}</li>
+      <li>Store: {{user.store}}</li>
+    </ul>
+    <div>
+      <a href="/users"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon glyphicon-backward">
+              </span> Back to Users</button></a>
+      <a href="/users/{{user._id}}/edit">
             <button type="button" class="btn btn-primary">Edit</button></a>
-            <a href="/users/{{user._id}}/delete">
+      <a href="/users/{{user._id}}/delete"> 
             <button type="button" class="btn btn-primary">Delete</button></a>
-        </div> 
+    </div>
   </div>
 </div>
