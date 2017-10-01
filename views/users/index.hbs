@@ -8,6 +8,16 @@
                 <span class="glyphicon glyphicon glyphicon-user">
                 </span> Add a New User</button></a>
             </span>
+            <button id="btn-color" type="button" class="btn btn-primary">
+                <a href="https://drive.google.com/open?id=1yucoLfMbDqbrvm2zZ-rNNRL7-FjhcVBnAih-STKUiXY" target=_blank> 
+              Wireframe</button></a>
+            <button id="btn-color" type="button" class="btn btn-primary">
+                <a href="https://trello.com/b/0ZjjGF7d/ga-project-two" target=_blank> 
+              Trello</button></a>
+            </span>
+
+            <a href="/users/mainpage">
+            <button type="button" class="btn btn-primary">Mainpage</button></a>
         </div>
 
         <br> {{#each users}}
@@ -20,14 +30,13 @@
         </div>
         <div>
        
-            <a href="/users/mainpage">
-            <button type="button" class="btn btn-primary">Mainpage</button></a>
             <a href="/users/{{this._id}}">
             <button type="button" class="btn btn-primary">{{this.name}}'s Information</button></a>
             <a href="/users/{{this._id}}/lists">
             <button type="button" class="btn btn-primary">{{this.name}}'s Grocery Lists</button></a>
         </div>
         <br> {{/each}}
-       
+      
     </div>
+     {{!-- <p class="text-center">Prakash Rai</p> --}}
 </div>

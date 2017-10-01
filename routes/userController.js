@@ -50,9 +50,9 @@ router.get('/:userId/edit', (request, response) => {
     //Find the user by ID using the UserModel
     UserModel.findById(userId)
         .then((user) => {
-            //Then once the company has been returned from
+            //Then once the user has been returned from
             //the database, Render a form containing the current
-            //company information
+            //user information
             response.render('users/edit', {
                 user    : user
             })

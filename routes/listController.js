@@ -7,10 +7,10 @@ const UserModel = Schema.UserModel;
 router.get('/', (request, Response) =>{
     //Grab the user ID from the parameter
     const userId = request.params.userId
-    //user the UserMode to find the company by ID
+    //user the UserMode to find the user by ID
     UserModel.findById(userId)
         .then((user) =>{
-            //Then once you have found the company in the database
+            //Then once you have found the user in the database
             response.render('lists/index', {
                 user: user
             })
@@ -34,11 +34,11 @@ router.get('/new', (request, response) =>{
 
 //Create Route
 router.post('/', (request, response) => {
-    //Grab the company ID from the parameters
+    //Grab the user ID from the parameters
     const userId = request.params.userId
     //Grab the new list info from the request body
     const newList = request.body
-    //Use the UserModel to find the company by ID
+    //Use the UserModel to find the user by ID
     UserModel.findById(userId)
         .then((user) =>{
             //Then once you have found the user from the database
@@ -98,7 +98,7 @@ router.put('/:listId', (request, response) => {
             list.name = updatedlist.name
             list.qty = updatedlist.qty
             //Save the updated user and return the Promise
-            return company.save()
+            return user.save()
         })
         .then(() =>{
             //Then once the user has saved, Redirect to the 
