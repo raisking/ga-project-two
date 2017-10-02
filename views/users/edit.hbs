@@ -1,8 +1,15 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
     <div class="container">
+        <div class="row">
+     <div class="col-md-3" >
+                <img src="/images/icon.jpg" class="img-responsive" id="logo" alt="logo">
+            </div>
+            <div class="col-md-6" id="center-div">
+                <h3>{{user.name}}'s Profile</h3>
+            </div>
+          </div>
+          <hr>
         <form action="/users/{{user._id}}?_method=PUT" method="POST">
-            <h1>Grocery List App</h1>
-            <hr>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="name" value="{{user.name}}">

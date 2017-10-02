@@ -1,14 +1,21 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
-    <div class="container" id="center-div">
-        <h2 class="text-center">Grocery List App</h2>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-3" >
+                <img src="../images/icon.jpg" class="img-responsive" id="logo" alt="logo">
+            </div>
+            <div class="col-md-6" id="center-div">
+                <h2>Grocery List App</h2>
+            </div>
+        </div>
         <hr>
-        <div> 
+        <div>
             <a href="/users/new"> 
             <button id="btn-color" type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon-user">
               </span> Add a New User</button></a>
         </div>
-    <hr>
+        <hr>
         <br> {{#each users}}
         <div class="row">
             <div class="col-md-4">
@@ -18,17 +25,18 @@
             </div>
         </div>
         <div>
-       
+
             <a href="/users/{{this._id}}">
-            <button type="button" class="btn btn-primary">{{this.name}}'s Information</button></a>
+            <button type="button" class="btn btn-primary">Information</button></a>
             <a href="/users/{{this._id}}/lists">
             <button type="button" class="btn btn-primary">{{this.name}}'s Grocery Lists</button></a>
         </div>
-        
+
         <br> {{/each}}
-         <a href="/users/mainpage">
+        <a href="/users/mainpage">
             <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon glyphicon-backward">
               </span> Back</button></a>
     </div>
-     {{!-- <p class="text-center">Prakash Rai</p> --}}
-</div>  
+    {{!--
+    <p class="text-center">Prakash Rai</p> --}}
+</div>

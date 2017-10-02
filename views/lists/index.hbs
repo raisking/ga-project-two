@@ -1,7 +1,13 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
-    <div class="container" id="center-div">
-        <div>
-            <h2>{{user.name}}'s Shopping List</h2>
+    <div class="container">
+               <div class="row">
+     <div class="col-md-3" >
+                <img src="/images/icon.jpg" class="img-responsive" id="logo" alt="logo">
+            </div>
+            <div class="col-md-6" id="center-div">
+                <h3>{{user.name}}'s Profile</h3>
+            </div>
+          </div>
             <hr>
             <div class="container shoplist">
                 {{#each user.lists}}
@@ -28,14 +34,14 @@
             View</button></a> {{/each}}
             </div><br>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-10">
                     <a href="/users/{{user._id}}/lists/new">
                     <button type="button" class="btn btn-primary">
                     Create a New List</button></a>
-                </div>
-                </div>
-                <div class="row"><br>
-                <div class="col-md-3">
+                {{!-- </div> --}}
+                {{!-- </div> --}}
+                {{!-- <div class="row"> --}}
+                {{!-- <div class="col-md-3"> --}}
                     <a href="/users">
                 <button type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon glyphicon-backward"></span>
