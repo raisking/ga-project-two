@@ -1,9 +1,16 @@
-<form action="users/{{userId}}/lists/{{list._id}}?_method=PUT" medthod="POST">
-<label for="name">Name</label>
-<input type="text" name="name" value="{{list.name}}">
+<div class="jumbotron jumbotron-fluid" id="front-page">
+    <div class="container" id="center-div">
+            <form action="/users/{{userId}}/lists/{{list._id}}?_method=PUT" method="POST">
+                <label for="name">Name</label>
+                <input type="text" name="name" value="{{list.name}}">
 
-<label for="qty">Qty</label>
-<input type="numver" name="qty" value="{{list.price}}" step="any">
+                <label for="qty">Qty</label>
+                <input type="number" name="qty" value="{{list.price}}" step="any">
 
-<input type="submit" value="Edit">
-</form>
+                <label for="note">Note</label>
+                <input type="text" name="note" value="{{list.note}}" step="any">
+                
+                <input type="submit" value="Update">
+            </form>
+    </div>
+</div>

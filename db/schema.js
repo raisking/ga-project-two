@@ -12,6 +12,10 @@ const ListSchema = new Schema({ //User
     qty: {
         type: Number,
         required: true
+    },
+    note: {
+        type: String,
+        required: false
     }
 })
 

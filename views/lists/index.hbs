@@ -1,18 +1,44 @@
-<div>
-    <h1>{{user.name}}'s Shopping List</h1>
-
-    <div>
-        <a href="/users/{{user._id}}/lists/new">Create a New Shopping List</a>
-    </div>
-
-    <div>
-        <a href="/users">Back to Companies</a>
-    </div>
-    
-    {{#each user.lists}}
+<div class="jumbotron jumbotron-fluid" id="front-page">
+    <div class="container" id="center-div">
         <div>
-            {{this.name}} - {{this.qty}}
-            <a href="/users/{{../user._id}}/lists/{{this._id}}">View</a>
+            <h2>{{user.name}}'s Shopping List</h2>
+    <hr>
+    <div class ="container shoplist">
+            {{#each user.lists}}
+            <div class="row">
+                <div class="col-md-2">
+                    {{this.name}}
+                </div>
+                <div class="col-md-2">
+                    {{this.qty}}
+                </div>
+
+                    <div class="col-md-5">
+                    {{this.note}}
+                </div>
+
+
+                <a href="/users/{{../user._id}}/lists/{{this._id}}">
+            <button type="button" class="btn btn-primary">
+            View</button></a>
+            </div>
+            {{/each}}
         </div>
-    {{/each}}
+
+         <div class="row">
+                <div class="col-md-3">
+                    <a href="/users/{{user._id}}/lists/new">
+                    <button type="button" class="btn btn-primary">
+                    Create a New List</button></a>
+                </div>
+
+
+                <div class="col-md-3">
+                    <a href="/users">
+                <button type="button" class="btn btn-primary">
+                Back to Companies</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

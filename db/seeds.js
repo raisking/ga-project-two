@@ -32,9 +32,9 @@ email: 'john@gmail.com', street: '112 Cobb Pky', city: 'Marietta', state: 'GA', 
 const newUserThree = new UserModel({ name: 'James Parker', phone: 4048449494, 
 email: 'john@gmail.com', street: '112 Cobb Pky', city: 'Marietta', state: 'GA', zipcode: 33040, store: 'Walmart'})
 
-const newListOne = new ListModel({ name: 'Pizza', qty: 22 })
-const newListTwo = new ListModel({ name: 'Beer', qty: 1 })
-const newListThree = new ListModel({ name: 'Hot Dog', qty: 12 })
+const newListOne = new ListModel({ name: 'Pizza', qty: 22, note: 'get fresh' })
+const newListTwo = new ListModel({ name: 'Beer', qty: 1, note: 'get Budweiser'})
+const newListThree = new ListModel({ name: 'Hot Dog', qty: 12, note: 'get the branded'})
 
 // Here we assign some lists to each user.
 const users = [newUserOne, newUserTwo, newUserThree]

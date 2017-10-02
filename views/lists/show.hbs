@@ -1,5 +1,21 @@
-<div>
-    {{list.name}} - {{list.qty}}
-    <a href="/users/{{userId}}/lists/{{list._id}}/edit">Edit</a>
-    <a href="/users/{{userId}}/lists/{{list._id}}/delete">Delete</a>
+<div class="jumbotron jumbotron-fluid" id="front-page">
+    <div class="container" id="center-div">
+        <div class="row">
+            <div class="col-md-2">
+                {{list.name}}
+            </div>
+            <div class="col-md-1">
+                {{list.qty}}
+            </div>
+             <div class="col-md-5">
+                {{list.note}}
+            </div>
+            <a href="/users/{{userId}}/lists/{{list._id}}/edit">
+             <button type="button" class="btn btn-primary">
+            Edit</button></a>
+            <a href="/users/{{userId}}/lists/{{list._id}}/delete">
+             <button type="button" class="btn btn-primary">
+            Delete</button></a>
+        </div>
+    </div>
 </div>

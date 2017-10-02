@@ -28,6 +28,11 @@ router.get('/mainpage', (request, response) =>{
     //REnder an empty form for the new user
     response.render('users/mainpage')
 })
+//Create New Route
+// router.get('/:userId/lists', (request, response) =>{
+//     //REnder an empty form for the new user
+//     response.render('/users/:userId/lists')
+// })
 
 //Create Route
 router.post('/', (request, response) =>{
@@ -64,6 +69,7 @@ router.get('/:userId/edit', (request, response) => {
 
 //Create Update Route update when edit clicked 
 router.put('/:userId', (request, response) =>{
+    console.log('Update route hit')
   //Grab the user Id from the parameter
    const userId = request.params.userId
     //Grab the updated User Info from the request body
@@ -72,7 +78,8 @@ router.put('/:userId', (request, response) =>{
     //new user info. Be sure to include the {new: true} option as 
    //your third parameter 
     UserModel.findByIdAndUpdate(userId,updatedUser, { new: true })
-        .then(() => {
+        .then((user) => {
+            console.log(user)
          //Then once the new user info has been saved,
          //redirect to that user's show page
             response.redirect(`/users/${userId}`)
