@@ -45,12 +45,14 @@ hr {
  margin: 0 auto;
  border: 1px solid #fff;
  opacity: .8;
- box-shadow: 8px 8px 5px #ccc;
+ /* box-shadow: 8px 8px 5px #ccc; */
  
 }
 h2,h3,h4{
+  font-family: 'Bowlby One SC', cursive;
   text-transform: uppercase;
   font-weight: bold;
+
 }
 #wrapper{
   border: 1px solid #fff;
@@ -81,7 +83,27 @@ line-height: 40px;
 #mainpage-top{
   background-color: rgba(3, 169, 244, 0.3);
   padding: 15px;
-  margin: 0;
+  /* margin: 0; */
+}
+#mobileApp{
+  border: 1px solid red;
+  width: 530px;
+  height: 850px;
+  padding-top: 15px;  
+  border-radius: 30px;
+  background-color: #ccc;
+
+}
+.circle {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 100%;
+  margin: 0 auto;
+  margin-top: 5px;
+  
+  
 }
 /* Portrait and Landscape */
 @media only screen 
