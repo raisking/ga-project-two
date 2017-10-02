@@ -2,16 +2,34 @@
   <div class="container">
     <h2>User Personal Information</h2>
     <hr>
-    <ul>
-      <li>User: {{user.name}}</li>
-      <li>Phone: {{user.phone}}</li>
-      <li>Email: {{user.email}}</li>
-      <li>Street: {{user.street}}</li>
-      <li>City: {{user.city}}</li>
-      <li>State: {{user.state}}</li>
-      <li>Zipcode: {{user.zipcode}}</li>
-      <li>Store: {{user.store}}</li>
-    </ul>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>User: {{user.name}}</td>
+        </tr>
+        <tr>
+        <td>Phone: {{user.phone}}</td>
+        </tr>
+        <tr>
+        <td>Email: {{user.email}}</td>
+         </tr>
+        <tr>
+        <td>Street: {{user.street}}</td>
+         </tr>
+        <tr>
+        <td>City: {{user.city}}</td>
+         </tr>
+        <tr>
+        <td>State: {{user.state}}</td>
+         </tr>
+        <tr>
+        <td>Zipcode: {{user.zipcode}}</td>
+         </tr>
+        <tr>
+        <td>Store: {{user.store}}</td>
+          </tr>        
+     </tbody>
+   </table>
     <div>
       <a href="/users"><button type="button" class="btn btn-primary">
         <span class="glyphicon glyphicon glyphicon-backward">

@@ -1,14 +1,23 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
     <div class="container" id="center-div">
-<form action="/users/{{userId}}/lists" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name">
+        <h2>Add a New List</h2>
+        <form action="/users/{{userId}}/lists" method="POST">
+         <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name">
+            </div>
+             <div class="form-group">
+            <label for="qty">Qty</label>
+            <input type="number" class="form-control" name="qty">
+            </div>
+             <div class="form-group">
+            <label for="note">Note</label>
+            <input type="text"  class="form-control"name="note">
+            </div>
+             <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
 
-    <label for="qty">Qty</label>
-    <input type="text" name="qty">
-
-    <input type="submit" value="Create">
-</form>
-
-</div>
+    </div>
 </div>
