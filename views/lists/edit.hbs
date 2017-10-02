@@ -1,11 +1,13 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
-    <div class="container" id="center-div">
-                <div class="row">
+    
+    <div class="container"  >
+           <div class="container">
+               <div class="row">
      <div class="col-md-3" >
                 <img src="/images/icon.jpg" class="img-responsive" id="logo" alt="logo">
             </div>
             <div class="col-md-6" id="center-div">
-                <h3>{{user.name}}'s Profile</h3>
+                <h3>Upate</h3>
             </div>
           </div>
         <form action="/users/{{userId}}/lists/{{list._id}}?_method=PUT" method="POST">

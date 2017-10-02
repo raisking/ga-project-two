@@ -118,6 +118,7 @@ router.put('/:listId', (request, response) => {
         // USE the userModel to find the user by ID
         UserModel.findById(userId)
             .then((user) => {
+        
                 // THEN once the user has been returned,
                 // FIND the list by ID from the user's lists
                 const list = user.lists.id(listId)
@@ -126,8 +127,10 @@ router.put('/:listId', (request, response) => {
                 list.name = updatedList.name
                 list.qty = updatedList.qty
                 list.note = updatedList.note
+             
                 // SAVE the updated user and return the PROMISE
                 return user.save()
+
             })
             .then(() => {
                 // THEN once the user has saved, REDIRECT to the 

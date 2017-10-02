@@ -1,40 +1,49 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
     <div class="container">
-        <div class="image-div">
-            <img src="../images/icon.jpg" class="img-responsive" alt="logo">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="image-div">
+                    <img src="../images/icon.jpg" class="img-responsive" alt="logo">
+                </div>
+            </div>
+            <div>
+                {{!-- <h3 class="text-center">Welcome to the Grocery List App</h3> --}}
+                <h3 class="text-center">Make Your Life Easier</h3>
+            </div>
         </div>
-        <h2 class="text-center">Welcome to the Grocery List App</h2>
-        <h2 class="text-center">Make Your Life Easier</h2>
-        <hr>
-        <form>
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-12">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        <div class="container" id="mainpage-top">
+            <form>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-12">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
                 </div>
-            </div>
-        </form>
-        <div> <button type="button" class="btn btn-primary">Login</button></a>
-            <a href="/users">
+            </form>
+            <div> <button type="button" class="btn btn-primary">Login</button></a>
+                <a href="/users">
              <button type="button" class="btn btn-primary">Guest Login</button></a>
-            <button type="button" class="btn btn-primary">Find Supermarket Near By</button>
-        </div>
-        <br>
-        <a href="https://drive.google.com/open?id=1yucoLfMbDqbrvm2zZ-rNNRL7-FjhcVBnAih-STKUiXY" target=_blank> 
+                <button type="button" class="btn btn-primary">Find Supermarket Near By</button>
+            </div>
+            <br>
+            <a href="https://drive.google.com/open?id=1yucoLfMbDqbrvm2zZ-rNNRL7-FjhcVBnAih-STKUiXY" target=_blank> 
         <button id="btn-color" type="button" class="btn btn-danger">
               Wireframe & ERD   </button></a>
-         <a href="https://trello.com/b/0ZjjGF7d/ga-project-two" target=_blank></a>
-        <button id="btn-color" type="button" class="btn btn-danger">
+            <a href="https://trello.com/b/0ZjjGF7d/ga-project-two" target=_blank></a>
+            <button id="btn-color" type="button" class="btn btn-danger">
                Trello Board</button></a>
-    </div><br>
-    <div class="container">
-        <img src="https://images.unsplash.com/photo-1473865857576-6551cdb55013?dpr=1&auto=compress,format&fit=crop&w=2863&h=&q=80&cs=tinysrgb&crop=" class="img-responsive" alt="">
+        </div><br>
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1473865857576-6551cdb55013?dpr=1&auto=compress,format&fit=crop&w=2863&h=&q=80&cs=tinysrgb&crop="
+                class="img-responsive" alt="">
+
+        </div>
+        <button type="button" onclick="myFunction()">Set background color</button>
 
     </div>
-</div>
