@@ -160,9 +160,22 @@ img{
 and (min-device-width: 375px) 
 and (max-device-width: 667px) 
 and (-webkit-min-device-pixel-ratio: 2) { 
+  #mobileApp{
+    margin-top: 60px;
+    height: 870px;
+  }
   #front-page{
     width: 100%;
-    margin-top: 20%;
+    margin-top: 0%;
+}
+#appCover{
+  width: 500px;
+  height: 740px;
+  background-color: black;
+  position: relative;
+  top: -834px;
+  opacity: .9;
+  border-radius: 10px;
 }
 /* Landscape */
 @media only screen 
