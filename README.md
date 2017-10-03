@@ -1,7 +1,7 @@
 # ga-project-two
 
 This is my GA Project two.
-Grocery/Shopping App you can list all the items you want to buy from the store so you do not forget.
+Grocery/Shopping - list all the items you want to buy from the store so you do not forget.
 Diet Plan list for a whole week. 
 
 Heroku: https://warm-badlands-85191.herokuapp.com/users/mainpage
