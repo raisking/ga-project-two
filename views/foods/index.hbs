@@ -5,33 +5,32 @@
                     <img src="/images/icon.jpg" class="img-responsive" id="logo" alt="logo">
                 </div>
                 <div class="col-md-6" id="center-div">
-                    <h3>{{user.name}}'s List</h3>
+                    <h3>{{user.name}}'s Diet Plan</h3>
                 </div>
             </div>
             <hr>
-            <div class="container shoplist">
-                {{#each user.lists}}
+            <div class="container shopfood">
+                {{#each user.foods}}
                 <table class="table">
                     <thead class="thead-inverse">
-                        <tr>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Size</th>
-                            {{!-- <th>Note</th> --}}
+                        <tr> <th>Day</th>
+                            <th>Breakfast</th>
+                            <th>lunch</th>
+                            <th>Dinner</th>
                         </tr>
                     </thead>
                 <tbody>
                     <tbody>
                         <tr>
-                            <th>{{this.name}}</th>
-                            <th>{{this.qty}}</th>
-                            <th>{{this.size}}</th>
-                            {{!-- <th>{{this.note}}</th> --}}
+                            <th>{{this.day}}</th>
+                            <th>{{this.breakfast}}</th>
+                            <th>{{this.lunch}}</th>
+                            <th>{{this.dinner}}</th>
                         </tr>
                      </tbody>
                  </tbody>
                 </table>
-                <a href="/users/{{../user._id}}/lists/{{this._id}}">
+                <a href="/users/{{../user._id}}/foods/{{this._id}}">
             <button type="button" class="btn btn-success">
                        <span class="glyphicon glyphicon glyphicon-zoom-in">
               </span>
@@ -39,11 +38,15 @@
             </div><br>
             <div class="row">
                 <div class="col-md-10">
-                    <a href="/users/{{user._id}}/lists/new">
+                    <a href="/users/{{user._id}}/foods/new">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon glyphicon-plus">
               </span>
-                    Create a New List</button></a>
+                    Create a New food</button></a>
+                {{!-- </div> --}}
+                {{!-- </div> --}}
+                {{!-- <div class="row"> --}}
+                {{!-- <div class="col-md-3"> --}}
                     <a href="/users">
                 <button type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon glyphicon-backward"></span>

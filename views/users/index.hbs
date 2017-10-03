@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid" id="front-page">
-    <div class="container" >
+    <div class="container">
         <div class="row">
-            <div class="col-md-3" >
+            <div class="col-md-3">
                 <img src="../images/icon.jpg" class="img-responsive" id="logo" alt="logo">
             </div>
             <div class="col-md-6" id="center-div">
@@ -23,14 +23,27 @@
                 </ul>
             </div>
         </div>
-        <div>
-
-            <a href="/users/{{this._id}}">
-            <button type="button" class="btn btn-primary">Information</button></a>
-            <a href="/users/{{this._id}}/lists">
-            <button type="button" class="btn btn-primary">{{this.name}}'s Grocery Lists</button></a>
-        </div><hr>
-
+        <div class="d-flex flex-reverse">
+            <div class="p-2">
+                <a href="/users/{{this._id}}">
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                Information</button></a>
+            </div>
+            <div class="p-2">
+                <a href="/users/{{this._id}}/lists">
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                {{this.name}}'s Grocery Lists</button></a>
+            </div>
+            <div class="p-2">
+                <a href="/users/{{this._id}}/foods">
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                {{this.name}}'s Diet Plan</button></a>
+            </div>
+        </div>
+        <hr>
         <br> {{/each}}
         <a href="/users/mainpage">
             <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon glyphicon-backward">

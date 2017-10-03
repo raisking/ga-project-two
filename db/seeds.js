@@ -15,9 +15,9 @@ db.once('open', function () {
 
 // Pull in Models from the `schema.js`
 var Schema = require("./schema.js");
-
 var UserModel = Schema.UserModel;
 var ListModel = Schema.ListModel;
+var FoodModel = Schema.FoodModel;
 
 // Delete all users from the database
 UserModel.remove({}, function (err) {
@@ -25,25 +25,28 @@ UserModel.remove({}, function (err) {
 });
 
 // Create some users and lists
-const newUserOne = new UserModel({ name: 'John Bush', phone: 7705554445, 
+const newUserOne = new UserModel({ name: 'Canelo Álvarez', phone: 7705554445, 
 email: 'john@gmail.com', street: '112 Cobb Pky', city: 'Marietta', state: 'GA', zipcode: 33040, store: 'Walmart'})
-const newUserTwo = new UserModel({ name: 'Mary Obama', phone: 4443338888, 
+const newUserTwo = new UserModel({ name: 'Manny Pacquiao', phone: 4443338888, 
 email: 'john@gmail.com', street: '112 Cobb Pky', city: 'Marietta', state: 'GA', zipcode: 33040, store: 'Walmart'})
-const newUserThree = new UserModel({ name: 'James Parker', phone: 4048449494, 
+const newUserThree = new UserModel({ name: 'Floyd Mayweather', phone: 4048449494, 
 email: 'john@gmail.com', street: '112 Cobb Pky', city: 'Marietta', state: 'GA', zipcode: 33040, store: 'Walmart'})
 
-const newListOne = new ListModel({ name: 'Pizza', qty: 22, note: 'get fresh' })
-const newListTwo = new ListModel({ name: 'Beer', qty: 1, note: 'get Budweiser'})
-const newListThree = new ListModel({ name: 'Hot Dog', qty: 12, note: 'get the branded'})
+const newListOne = new ListModel({ name: 'Pizza', qty: 22, size: 'Large'})
+const newListTwo = new ListModel({ name: 'Beer', qty: 1, size: '12 Pkg'})
+const newListThree = new ListModel({ name: 'Olive Oil', qty: 12, size: 'Large'})
+
+const newFoodOne = new FoodModel({day:'Sunday', breakfast: 'Bacon & Egg', lunch: 'Burrito', dinner: 'Chicken Fried Rice'})
+const newFoodTwo = new FoodModel({day: 'Monday', breakfast: 'Bacon & Egg', lunch: 'Pizza', dinner: 'Chicken Wings'})
+const newFoodThree = new FoodModel({day: 'Tuesday', breakfast: 'Bacon & Egg', lunch: 'Taco', dinner: 'Pasta'})
 
 // Here we assign some lists to each user.
 const users = [newUserOne, newUserTwo, newUserThree]
 const lists = [newListOne, newListTwo, newListThree]
+const foods = [newFoodOne, newFoodTwo, newFoodThree]
 
 users.forEach((user) => {
-
     user.lists = lists
-
     user.save()
         .then((user) => {
             console.log(`${user.name} saved!`)
@@ -52,6 +55,16 @@ users.forEach((user) => {
             console.log(error)
         })
 });
-
+users.forEach((user) => {
+        user.foods = foods
+        user.save()
+            .then((user) => {
+                console.log(`${user.name} saved!`)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    });
+    
 // Disconnect from database
 db.close();

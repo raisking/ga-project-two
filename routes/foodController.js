@@ -11,7 +11,7 @@ router.get('/', (request, response) =>{
     UserModel.findById(userId)
         .then((user) =>{
             //Then once you have found the user in the database
-            response.render('lists/index', {
+            response.render('foods/index', {
                 user: user
             })
         })
@@ -24,10 +24,10 @@ router.get('/', (request, response) =>{
 router.get('/new', (request, response) =>{
     //Grab the user ID from the parameters
     const userId = request.params.userId
-    //Render a new form for a fresh list,
+    //Render a new form for a fresh food,
     // also passing the userId to user in the 
     //form's Action
-    response.render('lists/new', {
+    response.render('foods/new', {
         userId: userId
     })
 })
@@ -36,40 +36,42 @@ router.get('/new', (request, response) =>{
 router.post('/', (request, response) => {
     //Grab the user ID from the parameters
     const userId = request.params.userId
-    //Grab the new list info from the request body
-    const newList = request.body
+    //Grab the new food info from the request body
+    const newFood = request.body
     //Use the UserModel to find the user by ID
     UserModel.findById(userId)
         .then((user) =>{
             //Then once you have found the user from the database
-            //Push the new list object input the user's 
-            //list array
-            user.lists.push(newList)
+            //Push the new food object input the user's 
+            //food array
+            console.log(user)
+            user.foods.push(newFood)
+
             //Save the user and return the Promise
             return user.save()
         })
         .then((user) =>{
             //Then once the user has been saved
-            //Redirect to the lists indexfor the user
-            response.redirect(`/users/${userId}/lists`)
+            //Redirect to the foods indexfor the user
+            response.redirect(`/users/${userId}/foods`)
         })
 })
 //Create Edit Route - takes to edit mode
-router.get('/:listId/edit', (request, response) =>{
+router.get('/:foodId/edit', (request, response) =>{
     //Grab the user ID from the parameter
     const userId = request.params.userId
-    //Grab the list ID from the parameter
-    const listId = request.params.listId
+    //Grab the food ID from the parameter
+    const foodId = request.params.foodId
     //Use the UserModel to find the user by ID
     UserModel.findById(userId)
         .then((user) =>{
             //Then once the user has been returned, 
-            //Find the list by ID that you want to edit
-            const list = user.lists.id(listId)
-            //Render a form pre-populated with the list info
+            //Find the food by ID that you want to edit
+            const food = user.foods.id(foodId)
+            //Render a form pre-populated with the food info
             //Also passing the userId to user for the form's Action
-            response.render('lists/edit', {
-                list: list,
+            response.render('foods/edit', {
+                food: food,
                 userId: userId
             })
         })
@@ -79,54 +81,54 @@ router.get('/:listId/edit', (request, response) =>{
 })
 
 //Create Update Route
-// router.put('/:listId', (request, response) => {
+// router.put('/:foodId', (request, response) => {
 //     //Grab the user ID from the parameter
 //     const userId = request.params.userId
 //     //Grab the user ID from the parameter
-//     const listId = request.params.listId
-//     //Grab the udated list object from the request body
-//     const updatedlist = request.body
+//     const foodId = request.params.foodId
+//     //Grab the udated food object from the request body
+//     const updatedfood = request.body
 
 //     //Use the UserModel to find the user by ID
 //     UserModel.findById(userId)
 //         .then((user) =>{
 //             //Then once the user has been returned,
-//             //Find the list by ID from the user's list
-//             const list = user.lists.id(listId)
-//             //Map each attribute from the updated list object to 
-//             //the same attribute on the orignal list
-//             list.name = updatedlist.name
-//             list.qty = updatedlist.qty
+//             //Find the food by ID from the user's food
+//             const food = user.foods.id(foodId)
+//             //Map each attribute from the updated food object to 
+//             //the same attribute on the orignal food
+//             food.name = updatedfood.name
+//             food.qty = updatedfood.qty
 //             //Save the updated user and return the Promise
 //             return user.save()
 //         })
 //         .then(() =>{
 //             //Then once the user has saved, Redirect to the 
-//             //list's show page
-//             response.redirect(`/users/${userId}/lists/${listId}`)
+//             //food's show page
+//             response.redirect(`/users/${userId}/foods/${foodId}`)
 //         })
 // })
 
 // UPDATE route // it takes to edit mode and updates any changes
-router.put('/:listId', (request, response) => {  
+router.put('/:foodId', (request, response) => {  
         // GRAB the user ID from the parameters
         const userId = request.params.userId 
-        // GRAB the list ID from the parameters
-        const listId = request.params.listId 
-        // GRAB the updated list object from the request body
-        const updatedList = request.body
+        // GRAB the food ID from the parameters
+        const foodId = request.params.foodId 
+        // GRAB the updated food object from the request body
+        const updatedFood = request.body
         // USE the userModel to find the user by ID
         UserModel.findById(userId)
             .then((user) => {
         
                 // THEN once the user has been returned,
-                // FIND the list by ID from the user's lists
-                const list = user.lists.id(listId)
-                // MAP each attribute from the updated list object to
-                // the same attribute on the original list
-                list.name = updatedList.name
-                list.qty = updatedList.qty
-                list.size = updatedList.size
+                // FIND the food by ID from the user's foods
+                const food = user.foods.id(foodId)
+                // MAP each attribute from the updated food object to
+                // the same attribute on the original food
+                food.breakfast = updatedFood.breakfast
+                food.lunch = updatedFood.lunch
+                food.dinner = updatedFood.dinner
              
                 // SAVE the updated user and return the PROMISE
                 return user.save()
@@ -134,33 +136,33 @@ router.put('/:listId', (request, response) => {
             })
             .then(() => {
                 // THEN once the user has saved, REDIRECT to the 
-                // list's SHOW page
-                response.redirect(`/users/${userId}/lists/${listId}`)
+                // food's SHOW page
+                response.redirect(`/users/${userId}/foods/${foodId}`)
             })
     
     })
 
 
 // SHOW route
-router.get('/:listId', (request, response) => {
+router.get('/:foodId', (request, response) => {
     
         // GRAB the user ID from the parameters
         const userId = request.params.userId
         
-        // GRAB the list ID from the parameters
-        const listId = request.params.listId
+        // GRAB the food ID from the parameters
+        const foodId = request.params.foodId
     
         // USE the userModel to find the user by ID
         UserModel.findById(userId)
             .then((user) => {
                 // THEN once the user has been returned,
-                // FIND the list by ID from the user's lists
-                const list = user.lists.id(listId)
+                // FIND the food by ID from the user's foods
+                const food = user.foods.id(foodId)
     
-                // THEN render the list info using Handlebars
+                // THEN render the food info using Handlebars
                 // and pass the userId to use in link URLs
-                response.render('lists/show', {
-                    list: list,
+                response.render('foods/show', {
+                    food: food,
                     userId: userId
                 })
             })
@@ -170,17 +172,17 @@ router.get('/:listId', (request, response) => {
     })
 
 //Create Delete Route 
-router.get('/:listId/delete', (request, response) =>{
+router.get('/:foodId/delete', (request, response) =>{
     const userId = request.params.userId
-    const listId = request.params.listId
+    const foodId = request.params.foodId
 
     UserModel.findById(userId)
         .then((user) =>{
-            const list = user.lists.id(listId).remove()
+            const food = user.foods.id(foodId).remove()
             return user.save()
         })
         .then(() =>{
-            response.redirect(`/users/${userId}/lists`)
+            response.redirect(`/users/${userId}/foods`)
         })
 })
 

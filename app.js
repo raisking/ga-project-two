@@ -47,6 +47,9 @@ app.use('/users', userController);
 const listController = require('./routes/listController')
 app.use('/users/:userId/lists', listController)
 
+const foodController = require('./routes/foodController')
+app.use('/users/:userId/foods', foodController)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

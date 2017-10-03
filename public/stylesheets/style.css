@@ -151,7 +151,9 @@ img{
   /* border: 1px solid red; */
   margin-top: -30px;
 }
-
+.p-2{
+  padding: 2px;
+}
 
 
 
@@ -164,10 +166,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     margin-top: 150px;
     height: 870px;
   }
-  #front-page{
-    width: 100%;
-    margin-top: 0%;
-}
 #appCover{
   width: 500px;
   height: 740px;
@@ -176,6 +174,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
   top: -834px;
   opacity: .9;
   border-radius: 10px;
+  }
+  #front-page{
+    /* width: 800px;   */
+    margin: 0 auto;
+    border: 1px solid #fff;
+    opacity: .8;
+    width: 100%;
+    margin-top: 0%;
+    /* box-shadow: 8px 8px 5px #ccc; */ 
+   }
 }
 /* Landscape */
 @media only screen 
@@ -186,7 +194,7 @@ and (orientation: landscape) {
   width: 90%;
 
 }
-}
+
 @media screen and (min-width: 768px) {
   .jumbotron {
     padding-top: 30px;

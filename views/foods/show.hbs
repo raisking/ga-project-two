@@ -5,7 +5,7 @@
                     <img src="/images/icon.jpg" class="img-responsive" id="logo" alt="logo">
                 </div>
                  <div class="col-md-7" >
-                          <h2>View List </h2>
+                    <h3>Diet Plan</h3>
                 </div>
                 </div>
                 
@@ -13,33 +13,35 @@
         <table class ="table">
         <thead class="thead-inverse">
             <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Size</th>
+                <th>Day</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                <th>dinner</th>
                 </tr>
         </thead>
         <tbody>
             <tbody>
                 <tr>
-               <th>{{list.name}}</th>
-               <th>{{list.qty}}</th>
-               <th>{{list.size}}</th>
+                <th>{{food.day}}</th>
+               <th>{{food.breakfast}}</th>
+               <th>{{food.lunch}}</th>
+               <th>{{food.dinner}}</th>
                 </tr>
             </tbody>
         </tbody>
         </table>
         <div>
-            <a href="/users/{{userId}}/lists/{{list._id}}/edit">
+            <a href="/users/{{userId}}/foods/{{food._id}}/edit">
              <button type="button" class="btn btn-primary">
                   <span class="glyphicon glyphicon glyphicon-scissors">
               </span>
             Edit</button></a>
-                <a href="/users/{{userId}}/lists/{{list._id}}/delete">
+                <a href="/users/{{userId}}/foods/{{food._id}}/delete">
              <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon glyphicon-trash">
               </span>
             Delete</button></a>
-                <a href="/users/{{userId}}/lists">
+                <a href="/users/{{userId}}/foods">
              <button type="button" class="btn btn-primary">
                   <span class="glyphicon glyphicon glyphicon-backward">
               </span>

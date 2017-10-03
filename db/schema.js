@@ -13,9 +13,28 @@ const ListSchema = new Schema({ //User
         type: Number,
         required: true
     },
-    note: {
+    size: {
         type: String,
-        required: false
+        required: true
+    }
+
+})
+const FoodSchema = new Schema({
+    day:{
+        type: String,
+        required: true
+    },
+    breakfast: {
+        type: String, 
+        required: true
+    },
+    lunch:{
+        type: String,
+        required: true
+    },
+    dinner: {
+        type: String,
+        required: true
     }
 })
 
@@ -53,15 +72,18 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    lists: [ListSchema]
+    lists: [ListSchema],
+    foods: [FoodSchema]
 });
 
 // Create models for each schema
 const UserModel = mongoose.model('Company', UserSchema)
 const ListModel = mongoose.model('Snowboard', ListSchema)
+const FoodModel = mongoose.model('Food', FoodSchema)
 
 // Export each model so they can be required elsewhere
 module.exports = {
     UserModel: UserModel,
-    ListModel: ListModel
+    ListModel: ListModel,
+    FoodModel: FoodModel
 }
