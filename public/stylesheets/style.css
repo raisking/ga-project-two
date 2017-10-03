@@ -69,7 +69,9 @@ hr {
   left: 190px;  
 }
 #circle:hover{
-  background-color: #26c6da ;
+  background-color: #26c6da;
+  border: 1px solid #00cc00;
+
 }
 h2,h3,h4{
   font-family: 'Bowlby One SC', cursive;
@@ -209,4 +211,18 @@ and (orientation: landscape) {
   .jumbotron .h1 {
     font-size: 63px;
   }
+}
+@media only screen and (max-width: 1000px) 
+          and (min-device-width: 668px)
+  {
+  #appCover{
+    /* background-color: red; */
+    height: 750px;
+    position: relative;
+    top: -840px; 
+  }
+  #mobileApp{
+    height: 860px;
+  }
+  
 }
