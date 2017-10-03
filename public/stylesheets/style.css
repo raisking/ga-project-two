@@ -47,10 +47,10 @@ hr {
 }
 #appCover{
   width: 500px;
-  height: 725px;
+  height: 692px;
   background-color: black;
   position: relative;
-  top: -816px;
+  top: -782px;
   opacity: .9;
   border-radius: 10px;
 }
@@ -66,7 +66,7 @@ hr {
   margin: 0 auto;
   margin-top: 5px;
   position: relative;
-  left: 180px;  
+  left: 190px;  
 }
 #circle:hover{
   background-color: #26c6da ;
@@ -93,7 +93,7 @@ margin: 2px;
 line-height: 40px;
 }
 .image-div{
-  width: 100px;  
+  width: 90px;  
 }
 #logo{
   width: 100px;
@@ -108,10 +108,10 @@ line-height: 40px;
 #mobileApp{
   border: 1px solid #000;
   width: 530px;
-  height: 832px;
+  height: 800px;
   padding-top: 15px;  
   border-radius: 30px;
-  background-color: #ccc;
+  background-color: #e0e0e0 ;
 
 }
 
@@ -135,12 +135,17 @@ line-height: 40px;
 .trelloboard{
   /* border: 1px solid red;   */
   margin-top: 5px;
+
 }
+
 .main-img{
   /* border: 1px solid red; */
   margin-top: 15px;
   height: 70%;
   
+}
+img{
+  height: 100px;
 }
 .top{
   /* border: 1px solid red; */
