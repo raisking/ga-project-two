@@ -1,6 +1,6 @@
 <div class="container" id="mobileApp">
     <div class="jumbotron jumbotron-fluid" id="front-page">
-        <div class="container">
+        <div class="container top">
             <div class="row">
                 <div class="col-md-3">
                     <div class="image-div">
@@ -29,15 +29,20 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary">Login</button></a>
+             <button type="button" class="btn btn-primary">Login</button></a>
             <a href="/users">
-             <button type="button" class="btn btn-primary">Guest Login</button></a>
-            <button type="button" class="btn btn-primary">Find Supermarket Near By</button>
+             <button type="button" class="btn btn-primary">Guest Login</button></a><br>
         </div>
-        <br>
-        <div>
+        <div class="container login">
+           
+            <button type="button" class="btn btn-primary">Find Supermarket Near By</button>
+       </div>
+ 
+        <div class="container main-img">
+            <img src="https://images.unsplash.com/photo-1473865857576-6551cdb55013?dpr=1&auto=compress,format&fit=crop&w=2863&h=&q=80&cs=tinysrgb&crop="
+                class="img-responsive" alt="">
+        </div>
+          <div class="container trelloboard">
             <a href="https://drive.google.com/open?id=1yucoLfMbDqbrvm2zZ-rNNRL7-FjhcVBnAih-STKUiXY" target=_blank> 
         <button id="btn-color" type="button" class="btn btn-danger">
               Wireframe & ERD   </button></a>
@@ -45,11 +50,15 @@
             <button id="btn-color" type="button" class="btn btn-danger">
                Trello Board</button></a>
         </div><br>
-        <div class="container">
-            <img src="https://images.unsplash.com/photo-1473865857576-6551cdb55013?dpr=1&auto=compress,format&fit=crop&w=2863&h=&q=80&cs=tinysrgb&crop="
-                class="img-responsive" alt="">
-        </div>
         {{!-- <button type="button" onclick="myFunction()">Set background color</button> --}}
     </div>
-    <div class="circle"></div>
+        <div class="container" id="footer"> 
+        <div>
+        <button onclick="myFunction()" id="circle"><strong>start</strong></button>
+        </div>
+    </div>
+    <div id="appCover">    
+   
+  
 </div>
+     {{!-- <button onclick="myFunction()">Try it</button> --}}
