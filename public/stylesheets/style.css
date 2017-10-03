@@ -170,10 +170,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
   }
 #appCover{
   width: 500px;
-  height: 740px;
+  height: 760px;
   background-color: black;
   position: relative;
-  top: -834px;
+  top: -854px;
   opacity: .9;
   border-radius: 10px;
   }
