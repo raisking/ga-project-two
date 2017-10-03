@@ -20,15 +20,15 @@ const ListSchema = new Schema({ //User
 
 })
 const FoodSchema = new Schema({
-    day:{
+    day: {
         type: String,
         required: true
     },
     breakfast: {
-        type: String, 
+        type: String,
         required: true
     },
-    lunch:{
+    lunch: {
         type: String,
         required: true
     },
@@ -38,7 +38,7 @@ const FoodSchema = new Schema({
     }
 })
 
-const UserSchema = new Schema({ 
+const UserSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -52,15 +52,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    street:{
+    street: {
         type: String,
         required: true
     },
-    city:{
+    city: {
         type: String,
         required: true
     },
-    state:{
+    state: {
         type: String,
         required: true
     },
