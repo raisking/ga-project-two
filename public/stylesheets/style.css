@@ -166,7 +166,7 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2) { 
   #mobileApp{
     margin-top: 150px;
-    height: 870px;
+    height: 885px;
   }
 #appCover{
   width: 500px;
