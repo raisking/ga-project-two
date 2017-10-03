@@ -161,7 +161,7 @@ and (min-device-width: 375px)
 and (max-device-width: 667px) 
 and (-webkit-min-device-pixel-ratio: 2) { 
   #mobileApp{
-    margin-top: 60px;
+    margin-top: 150px;
     height: 870px;
   }
   #front-page{
