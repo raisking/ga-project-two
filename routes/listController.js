@@ -78,35 +78,6 @@ router.get('/:listId/edit', (request, response) => {
         })
 })
 
-//Create Update Route
-// router.put('/:listId', (request, response) => {
-//     //Grab the user ID from the parameter
-//     const userId = request.params.userId
-//     //Grab the user ID from the parameter
-//     const listId = request.params.listId
-//     //Grab the udated list object from the request body
-//     const updatedlist = request.body
-
-//     //Use the UserModel to find the user by ID
-//     UserModel.findById(userId)
-//         .then((user) =>{
-//             //Then once the user has been returned,
-//             //Find the list by ID from the user's list
-//             const list = user.lists.id(listId)
-//             //Map each attribute from the updated list object to 
-//             //the same attribute on the orignal list
-//             list.name = updatedlist.name
-//             list.qty = updatedlist.qty
-//             //Save the updated user and return the Promise
-//             return user.save()
-//         })
-//         .then(() =>{
-//             //Then once the user has saved, Redirect to the 
-//             //list's show page
-//             response.redirect(`/users/${userId}/lists/${listId}`)
-//         })
-// })
-
 // UPDATE route // it takes to edit mode and updates any changes
 router.put('/:listId', (request, response) => {
     // GRAB the user ID from the parameters

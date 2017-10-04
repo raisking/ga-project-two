@@ -80,34 +80,6 @@ router.get('/:foodId/edit', (request, response) => {
         })
 })
 
-//Create Update Route
-// router.put('/:foodId', (request, response) => {
-//     //Grab the user ID from the parameter
-//     const userId = request.params.userId
-//     //Grab the user ID from the parameter
-//     const foodId = request.params.foodId
-//     //Grab the udated food object from the request body
-//     const updatedfood = request.body
-
-//     //Use the UserModel to find the user by ID
-//     UserModel.findById(userId)
-//         .then((user) =>{
-//             //Then once the user has been returned,
-//             //Find the food by ID from the user's food
-//             const food = user.foods.id(foodId)
-//             //Map each attribute from the updated food object to 
-//             //the same attribute on the orignal food
-//             food.name = updatedfood.name
-//             food.qty = updatedfood.qty
-//             //Save the updated user and return the Promise
-//             return user.save()
-//         })
-//         .then(() =>{
-//             //Then once the user has saved, Redirect to the 
-//             //food's show page
-//             response.redirect(`/users/${userId}/foods/${foodId}`)
-//         })
-// })
 
 // UPDATE route // it takes to edit mode and updates any changes
 router.put('/:foodId', (request, response) => {
@@ -145,13 +117,10 @@ router.put('/:foodId', (request, response) => {
 
 // SHOW route
 router.get('/:foodId', (request, response) => {
-
     // GRAB the user ID from the parameters
     const userId = request.params.userId
-
     // GRAB the food ID from the parameters
     const foodId = request.params.foodId
-
     // USE the userModel to find the user by ID
     UserModel.findById(userId)
         .then((user) => {
