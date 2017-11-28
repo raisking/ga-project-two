@@ -19,7 +19,6 @@ router.get('/', (request, response) => {
             console.log(error)
         })
 })
-
 //Create New Route
 router.get('/new', (request, response) => {
     //Grab the user ID from the parameters
@@ -31,7 +30,6 @@ router.get('/new', (request, response) => {
         userId: userId
     })
 })
-
 //Create Route
 router.post('/', (request, response) => {
     //Grab the user ID from the parameters
@@ -79,8 +77,6 @@ router.get('/:foodId/edit', (request, response) => {
             console.log(error)
         })
 })
-
-
 // UPDATE route // it takes to edit mode and updates any changes
 router.put('/:foodId', (request, response) => {
     // GRAB the user ID from the parameters

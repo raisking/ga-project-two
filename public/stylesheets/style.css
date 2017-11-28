@@ -9,6 +9,7 @@ body {
   background-attachment: fixed; 
   box-sizing: border-box;
 }
+
 a{
   color:#fff;
 }
@@ -123,6 +124,10 @@ line-height: 40px;
   /* border: 1px solid red; */
   
 }
+  .btn{
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: 5px 5px 5px #ccc;
+  }
 #footer{
   width: 500px;
   height: 90px;

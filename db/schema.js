@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
-
 // First, we instantiate a namespace for our 
 //Schema constructor defined by mongoose.
 const Schema = mongoose.Schema;
-
 const ListSchema = new Schema({ //User
     name: {
         type: String,
@@ -37,7 +35,6 @@ const FoodSchema = new Schema({
         required: true
     }
 })
-
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -75,12 +72,10 @@ const UserSchema = new Schema({
     lists: [ListSchema],
     foods: [FoodSchema]
 });
-
 // Create models for each schema
 const UserModel = mongoose.model('Company', UserSchema)
 const ListModel = mongoose.model('Snowboard', ListSchema)
 const FoodModel = mongoose.model('Food', FoodSchema)
-
 // Export each model so they can be required elsewhere
 module.exports = {
     UserModel: UserModel,

@@ -19,7 +19,6 @@ router.get('/', (request, response) => {
             console.log(error)
         })
 })
-
 //Create New Route
 router.get('/new', (request, response) => {
     //Grab the user ID from the parameters
@@ -31,7 +30,6 @@ router.get('/new', (request, response) => {
         userId: userId
     })
 })
-
 //Create Route
 router.post('/', (request, response) => {
     //Grab the user ID from the parameters
